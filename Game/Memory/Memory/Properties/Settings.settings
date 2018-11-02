@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Memory.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="highscore1" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="highscore2" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="highscore3" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="highscore4" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="highscore5" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="name1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">not existing yet</Value>
+    </Setting>
+    <Setting Name="name2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">not existing yet</Value>
+    </Setting>
+    <Setting Name="name3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">not existing yet</Value>
+    </Setting>
+    <Setting Name="name4" Type="System.String" Scope="User">
+      <Value Profile="(Default)">not existing yet</Value>
+    </Setting>
+    <Setting Name="name5" Type="System.String" Scope="User">
+      <Value Profile="(Default)">not existing yet</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
