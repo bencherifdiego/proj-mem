@@ -59,10 +59,21 @@
       <DependentUpon>Highscores.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoadSave.cs" />
-    <Compile Include="MemoryGrid.cs" />
+    <Compile Include="MemoryGrid3.cs" />
+    <Compile Include="MemoryGrid2.cs" />
+    <Compile Include="MemoryGrid1.cs" />
+    <Compile Include="NewSave.xaml.cs">
+      <DependentUpon>NewSave.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="Spellenscherm.xaml.cs">
-      <DependentUpon>Spellenscherm.xaml</DependentUpon>
+    <Compile Include="Spellenscherm3.xaml.cs">
+      <DependentUpon>Spellenscherm3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Spellenscherm2.xaml.cs">
+      <DependentUpon>Spellenscherm2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Spellenscherm1.xaml.cs">
+      <DependentUpon>Spellenscherm1.xaml</DependentUpon>
     </Compile>
     <Page Include="Highscores.xaml">
       <SubType>Designer</SubType>
@@ -80,7 +91,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Spellenscherm.xaml">
+    <Page Include="NewSave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Spellenscherm3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Spellenscherm2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Spellenscherm1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

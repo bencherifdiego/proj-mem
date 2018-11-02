@@ -1,4 +1,4 @@
-﻿using SpellenScherm;
+﻿using SpellenScherm2;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,13 +20,13 @@ namespace Memory
     /// <summary>
     /// Interaction logic for Spellenscherm.xaml
     /// </summary>
-    public partial class Spellenscherm : Window
+    public partial class Spellenscherm2 : Window
     {
         private MemoryGrid grid;
-        private string path = @"Save1.csv";
+        private string path = @"Save2.csv";
         public static string delimiter = ";";
 
-        public Spellenscherm()
+        public Spellenscherm2()
         {
             InitializeComponent();
             main = this;
@@ -87,7 +87,7 @@ namespace Memory
             set2.Visibility = Visibility.Collapsed;
 
             //reads savefile
-            string path = @"Save1.csv";
+            string path = @"Save2.csv";
 
             var reader = new StreamReader(File.OpenRead(path));
             var data = new List<List<string>>();
@@ -180,7 +180,7 @@ namespace Memory
         /// <summary>
         /// Call the scores from the grid and set them on the screen
         /// </summary>
-        internal static Spellenscherm main;
+        internal static Spellenscherm2 main;
         internal string Score1
         {
             get { return scoreName1.Content.ToString(); }

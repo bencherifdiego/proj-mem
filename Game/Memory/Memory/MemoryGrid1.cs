@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.IO;
 using System.Xml.Serialization;
 
-namespace SpellenScherm
+namespace SpellenScherm1
 {
     public class MemoryGrid
     {
@@ -310,15 +310,15 @@ namespace SpellenScherm
             // if its player1's turn, show 'Aan de beurt' under their name
             if (turnName1 == true)
             {
-                Spellenscherm.main.setTurn1 = "Aan de beurt";
-                Spellenscherm.main.setTurn2 = "";
+                Spellenscherm1.main.setTurn1 = "Aan de beurt";
+                Spellenscherm1.main.setTurn2 = "";
 
             }
             // if its player2's turn, show 'Aan de beurt' under their name
             else if (turnName2 == true)
             {
-                Spellenscherm.main.setTurn1 = "";
-                Spellenscherm.main.setTurn2 = "Aan de beurt";
+                Spellenscherm1.main.setTurn1 = "";
+                Spellenscherm1.main.setTurn2 = "Aan de beurt";
             }
         }
 
@@ -529,8 +529,8 @@ namespace SpellenScherm
         /// </summary>
         private void UpdateScore()
         {
-            Spellenscherm.main.Score1 = "Score: " + scoreName1Tot;
-            Spellenscherm.main.Score2 = "Score: " + scoreName2Tot;
+            Spellenscherm1.main.Score1 = "Score: " + scoreName1Tot;
+            Spellenscherm1.main.Score2 = "Score: " + scoreName2Tot;
         }
 
         /// <summary>

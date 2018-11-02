@@ -35,7 +35,7 @@ namespace Memory
         /// <param name="e"></param>
         private void NewGame_Click(object sender, RoutedEventArgs e)
         {
-            new Spellenscherm().ShowDialog();
+            new NewSave().ShowDialog();
         }
 
         /// <summary>
