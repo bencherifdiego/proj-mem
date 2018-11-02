@@ -6,10 +6,14 @@
         xmlns:local="clr-namespace:Memory"
         mc:Ignorable="d"
         Title="LoadSave" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="Save1" Content="Save 1" HorizontalAlignment="Left" Margin="170,219,0,0" VerticalAlignment="Top" Width="75" Click="Save1_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="367,219,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="603,219,0,0" VerticalAlignment="Top" Width="75"/>
+    <Grid Background="#FF51BDDC">
+        <Button x:Name="Save1" Content="Save 1" HorizontalAlignment="Left" Margin="287,126,0,0" VerticalAlignment="Top" Width="215" Click="Save1_Click" Background="White" Height="52"/>
+        <Button x:Name="Save2" Content="Save 2" HorizontalAlignment="Left" Margin="287,221,0,0" VerticalAlignment="Top" Width="215" Background="White" Height="52"/>
+        <Button x:Name="Save3" Content="Save 3" HorizontalAlignment="Left" Margin="287,318,0,0" VerticalAlignment="Top" Width="215" Background="White" Height="52"/>
+        <Grid HorizontalAlignment="Left" Height="92" VerticalAlignment="Top" Width="792" Background="#FFE47417">
+            <Label Content="Load Game" HorizontalAlignment="Left" Height="74" Margin="272,18,0,0" VerticalAlignment="Top" Width="440" Background="{x:Null}" FontFamily="Viner Hand ITC" FontSize="48" Foreground="White"/>
+        </Grid>
 
     </Grid>
+
 </Window>

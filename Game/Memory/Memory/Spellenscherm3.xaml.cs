@@ -117,7 +117,8 @@ namespace Memory
         /// <param name="e"></param>
         private void LoadGame_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("You can't load a game yet.");
+            this.Close();
+            new LoadSave().ShowDialog();
         }
 
         /// <summary>
