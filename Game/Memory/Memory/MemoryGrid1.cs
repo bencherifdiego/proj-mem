@@ -110,6 +110,10 @@ namespace SpellenScherm1
             reader.Close();
             if (data[0][2] == "SaveReady")
             {
+                scoreName1Tot = Convert.ToInt32(data[1][0]);
+                scoreName2Tot = Convert.ToInt32(data[1][1]);
+                UpdateScore();
+
                 List<ImageSource> images = GetImagesList();
                 for (int row = 0; row < rows; row++)
                 {
@@ -146,12 +150,6 @@ namespace SpellenScherm1
                 {
                     for (int col = 0; col < cols; col++)
                     {
-                        if (data[row + 2][col] == "")
-                        {
-
-                        }
-                        else
-                        {
                             // assign the back of the image
                             Image back = new Image();
                             back.Source = new BitmapImage(new Uri(folder + "/back.png", UriKind.RelativeOrAbsolute));
@@ -165,7 +163,6 @@ namespace SpellenScherm1
                             Grid.SetColumn(back, col);
                             Grid.SetRow(back, row);
                             grid.Children.Add(back);
-                        }
                     }
                 }
             }
