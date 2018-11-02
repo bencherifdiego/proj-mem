@@ -52,7 +52,7 @@
         <Grid x:Name="set2" HorizontalAlignment="Left" Height="54" Margin="619,242,0,0" VerticalAlignment="Top" Width="106" Background="#FFE47417">
             <Button x:Name="setNames" Content="Set" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="86" Background="White" RenderTransformOrigin="0.585,0.971" Height="34" FontFamily="Viner Hand ITC" FontSize="20" Click="setNames_Click"/>
         </Grid>
-        <TextBox x:Name="setFolderBox" HorizontalAlignment="Left" Height="34" Margin="777,208,0,0" TextWrapping="Wrap" Text="folder" VerticalAlignment="Top" Width="200" RenderTransformOrigin="0.311,0.552" Background="#FFE47417" FontSize="22" FontFamily="Viner Hand ITC"/>
+        <TextBox x:Name="setFolderBox" HorizontalAlignment="Left" Height="34" Margin="779,207,0,0" TextWrapping="Wrap" Text="folder" VerticalAlignment="Top" Width="200" RenderTransformOrigin="0.311,0.552" Background="#FFE47417" FontSize="22" FontFamily="Viner Hand ITC"/>
         <Button x:Name="setFolder" Content="Set" HorizontalAlignment="Left" Margin="982,208,0,0" VerticalAlignment="Top" Width="86" Background="White" RenderTransformOrigin="0.585,0.971" Height="34" FontFamily="Viner Hand ITC" FontSize="20" Click="setFolder_Click"/>
         <Label x:Name="folderDisplay" x:FieldModifier="public" Content="Folder: /images" HorizontalAlignment="Left" Margin="779,242,0,0" VerticalAlignment="Top" Height="47" Width="756" Background="#FFE47417" FontSize="26" FontFamily="Viner Hand ITC" />
 
