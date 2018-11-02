@@ -23,5 +23,11 @@ namespace Memory
         {
             InitializeComponent();
         }
+
+        private void Save1_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            new Spellenscherm1().ShowDialog();
+        }
     }
 }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="LoadSave" Height="450" Width="800">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="170,219,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Save1" Content="Save 1" HorizontalAlignment="Left" Margin="170,219,0,0" VerticalAlignment="Top" Width="75" Click="Save1_Click"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="367,219,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="603,219,0,0" VerticalAlignment="Top" Width="75"/>
 

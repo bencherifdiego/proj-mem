@@ -45,7 +45,7 @@ namespace Memory
         /// <param name="e"></param>
         private void Hervatten_Click(object sender, RoutedEventArgs e)
         {
-
+            new LoadSave().ShowDialog();
         }
 
         /// <summary>
