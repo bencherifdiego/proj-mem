@@ -54,6 +54,9 @@ namespace SpellenScherm3
         // Folder where images are stored
         public static string folder { get; set; }
 
+        // Bool to check if sound is muted
+        public static bool mute { get; set; }
+
         /// <summary>
         /// Initialize the grid and assign the images to the grid
         /// </summary>
@@ -310,15 +313,15 @@ namespace SpellenScherm3
             // if its player1's turn, show 'Aan de beurt' under their name
             if (turnName1 == true)
             {
-                Spellenscherm2.main.setTurn1 = "Aan de beurt";
-                Spellenscherm2.main.setTurn2 = "";
+                Spellenscherm3.main.setTurn1 = "Aan de beurt";
+                Spellenscherm3.main.setTurn2 = "";
 
             }
             // if its player2's turn, show 'Aan de beurt' under their name
             else if (turnName2 == true)
             {
-                Spellenscherm2.main.setTurn1 = "";
-                Spellenscherm2.main.setTurn2 = "Aan de beurt";
+                Spellenscherm3.main.setTurn1 = "";
+                Spellenscherm3.main.setTurn2 = "Aan de beurt";
             }
         }
 
@@ -529,8 +532,8 @@ namespace SpellenScherm3
         /// </summary>
         private void UpdateScore()
         {
-            Spellenscherm2.main.Score1 = "Score: " + scoreName1Tot;
-            Spellenscherm2.main.Score2 = "Score: " + scoreName2Tot;
+            Spellenscherm3.main.Score1 = "Score: " + scoreName1Tot;
+            Spellenscherm3.main.Score2 = "Score: " + scoreName2Tot;
         }
 
         /// <summary>
@@ -619,17 +622,25 @@ namespace SpellenScherm3
             // when the scores of player1 and player2 are the same
             if (scoreName1Tot == scoreName2Tot)
             {
-                System.IO.Stream str = Memory.Properties.Resources.even;
-                System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
-                snd.Play();
+                if (mute == false)
+                {
+
+                    System.IO.Stream str = Memory.Properties.Resources.even;
+                    System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+                    snd.Play();
+                }
                 MessageBox.Show("Gelijkspel!");
             }
             // if the scores of player1 and player2 are not the same, announce the winner, who is the player with the most points
             else
             {
-                System.IO.Stream str = Memory.Properties.Resources.win;
-                System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
-                snd.Play();
+                if (mute == false)
+                {
+
+                    System.IO.Stream str = Memory.Properties.Resources.win;
+                    System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+                    snd.Play();
+                }
                 string winner = (scoreName1Tot > scoreName2Tot) ? Player1 : Player2;
                 MessageBox.Show(winner + " heeft gewonnen!");
             }
@@ -640,9 +651,12 @@ namespace SpellenScherm3
         /// </summary>
         private void PlaySoundPositive()
         {
-            System.IO.Stream str = Memory.Properties.Resources.pair;
-            System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
-            snd.Play();
+            if (mute == false)
+            {
+                System.IO.Stream str = Memory.Properties.Resources.pair;
+                System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+                snd.Play();
+            }
         }
 
         /// <summary>
@@ -650,9 +664,12 @@ namespace SpellenScherm3
         /// </summary>
         private void PlaySoundNegative()
         {
-            System.IO.Stream str = Memory.Properties.Resources.fail;
-            System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
-            snd.Play();
+            if (mute == false)
+            {
+                System.IO.Stream str = Memory.Properties.Resources.fail;
+                System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+                snd.Play();
+            }
         }
 
         /// <summary>
@@ -660,9 +677,12 @@ namespace SpellenScherm3
         /// </summary>
         private void PlaySoundStupid()
         {
-            System.IO.Stream str = Memory.Properties.Resources.huh;
-            System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
-            snd.Play();
+            if (mute == false)
+            {
+                System.IO.Stream str = Memory.Properties.Resources.huh;
+                System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+                snd.Play();
+            }
         }
 
         /// <summary>

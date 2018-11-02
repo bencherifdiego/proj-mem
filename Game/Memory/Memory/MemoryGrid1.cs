@@ -54,6 +54,9 @@ namespace SpellenScherm1
         // Folder where images are stored
         public static string folder { get; set; }
 
+        // Bool to check if sound is muted
+        public static bool mute { get; set; }
+
         /// <summary>
         /// Initialize the grid and assign the images to the grid
         /// </summary>
@@ -776,9 +779,13 @@ namespace SpellenScherm1
             // when the scores of player1 and player2 are the same
             if (scoreName1Tot == scoreName2Tot)
             {
-                System.IO.Stream str = Memory.Properties.Resources.even;
-                System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
-                snd.Play();
+                if (mute = false)
+                {
+
+                    System.IO.Stream str = Memory.Properties.Resources.even;
+                    System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+                    snd.Play();
+                }
                 MessageBox.Show("Gelijkspel!");
             }
             // if the scores of player1 and player2 are not the same, announce the winner, who is the player with the most points
@@ -797,9 +804,12 @@ namespace SpellenScherm1
         /// </summary>
         private void PlaySoundPositive()
         {
-            System.IO.Stream str = Memory.Properties.Resources.pair;
-            System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
-            snd.Play();
+            if (mute == false)
+            {
+                System.IO.Stream str = Memory.Properties.Resources.pair;
+                System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+                snd.Play();
+            }
         }
 
         /// <summary>
@@ -807,9 +817,12 @@ namespace SpellenScherm1
         /// </summary>
         private void PlaySoundNegative()
         {
-            System.IO.Stream str = Memory.Properties.Resources.fail;
-            System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
-            snd.Play();
+            if (mute == false)
+            {
+                System.IO.Stream str = Memory.Properties.Resources.fail;
+                System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+                snd.Play();
+            }
         }
 
         /// <summary>
@@ -817,9 +830,12 @@ namespace SpellenScherm1
         /// </summary>
         private void PlaySoundStupid()
         {
-            System.IO.Stream str = Memory.Properties.Resources.huh;
-            System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
-            snd.Play();
+            if (mute == false)
+            {
+                System.IO.Stream str = Memory.Properties.Resources.huh;
+                System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+                snd.Play();
+            }
         }
 
         /// <summary>

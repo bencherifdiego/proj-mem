@@ -48,6 +48,7 @@
             <Button x:Name="close" Content="Close Game" HorizontalAlignment="Left" Margin="803,10,0,0" VerticalAlignment="Top" Width="225" Height="46" FontFamily="Viner Hand ITC" Background="White" FontSize="20" Click="close_Click"/>
             <Button x:Name="Help" Content="Help" HorizontalAlignment="Left" Margin="1067,10,0,0" VerticalAlignment="Top" Width="225" Height="46" FontFamily="Viner Hand ITC" Background="White" FontSize="20" Click="Help_Click"/>
             <Button x:Name="Help_Copy" Content="Thema's" HorizontalAlignment="Left" Margin="1333,10,0,0" VerticalAlignment="Top" Width="225" Height="46" FontFamily="Viner Hand ITC" Background="White" FontSize="20" Click="Help_Click"/>
+            <Button x:Name="mute" Content="Mute" HorizontalAlignment="Left" Margin="1613,10,0,0" VerticalAlignment="Top" Width="80" Height="46" Click="mute_Click" FontFamily="Viner Hand ITC" Background="White" FontSize="20"/>
         </Grid>
         <Grid x:Name="set2" HorizontalAlignment="Left" Height="54" Margin="619,242,0,0" VerticalAlignment="Top" Width="106" Background="#FFE47417">
             <Button x:Name="setNames" Content="Set" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="86" Background="White" RenderTransformOrigin="0.585,0.971" Height="34" FontFamily="Viner Hand ITC" FontSize="20" Click="setNames_Click"/>
