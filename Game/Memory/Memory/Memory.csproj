@@ -156,13 +156,32 @@
     <None Include="Resources\1.wav" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="disney\1.png" />
+    <Resource Include="disney\2.png" />
+    <Resource Include="disney\3.png" />
+    <Resource Include="disney\4.png" />
+    <Resource Include="disney\5.png" />
+    <Resource Include="disney\6.png" />
+    <Resource Include="disney\7.png" />
+    <Resource Include="disney\8.png" />
+    <Resource Include="disney\back.png" />
     <Content Include="sounds\base.wav" />
     <Content Include="sounds\even.wav" />
     <Content Include="sounds\fail.wav" />
     <Content Include="sounds\huh.wav" />
+    <Resource Include="vormen\1.png" />
+    <Resource Include="vormen\2.png" />
+    <Resource Include="vormen\3.png" />
+    <Resource Include="vormen\4.png" />
+    <Resource Include="vormen\5.png" />
+    <Resource Include="vormen\6.png" />
+    <Resource Include="vormen\7.png" />
+    <Resource Include="vormen\8.png" />
+    <Resource Include="vormen\back.png" />
     <None Include="sounds\lobby.wav" />
     <Content Include="sounds\pair.wav" />
     <Content Include="sounds\win.wav" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

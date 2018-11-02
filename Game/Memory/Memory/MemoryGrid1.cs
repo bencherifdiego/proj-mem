@@ -94,20 +94,20 @@ namespace SpellenScherm1
         private void AddImages()
         {
             //reads savefile
-                    string path = @"Save1.csv";
+            string path = @"Save1.csv";
 
-                    var reader = new StreamReader(File.OpenRead(path));
-                    var data = new List<List<string>>();
+            var reader = new StreamReader(File.OpenRead(path));
+            var data = new List<List<string>>();
 
-                    while (!reader.EndOfStream)
-                    {
-                        var line = reader.ReadLine();
-                        var values = line.Split(';');
+            while (!reader.EndOfStream)
+            {
+                var line = reader.ReadLine();
+                var values = line.Split(';');
 
-                        data.Add(new List<String> { values[0], values[1], values[2], values[3]
+                data.Add(new List<String> { values[0], values[1], values[2], values[3]
                         });
-                    }
-                    reader.Close();
+            }
+            reader.Close();
             if (data[0][2] == "SaveReady")
             {
                 List<ImageSource> images = GetImagesList();
@@ -299,88 +299,88 @@ namespace SpellenScherm1
                 {
                     if (i == 1)
 
-                    if(i == 1 && C1 != "")
+                        if (i == 1 && C1 != "")
 
-                    if(i == 1 && C1 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C1 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
-                    else if (i == 2 && C2 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C2 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
-                    else if (i == 3 && C3 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C3 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
-                    else if (i == 4 && C4 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C4 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
-                    else if (i == 5 && C5 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C5 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
-                    else if (i == 6 && C6 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C6 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
-                    else if (i == 7 && C7 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C7 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
-                    else if (i == 8 && C8 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C8 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
-                    else if (i == 9 && C9 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C9 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
-                    else if (i == 10 && C10 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C10 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
-                    else if (i == 11 && C11 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C11 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
-                    else if (i == 12 && C12 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C12 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
-                    else if (i == 13 && C13 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C13 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
-                    else if (i == 14 && C14 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C14 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
-                    else if (i == 15 && C15 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C15 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
-                    else if (i == 16 && C16 != "")
-                    {
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C16 + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-                    }
+                            if (i == 1 && C1 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C1 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
+                            else if (i == 2 && C2 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C2 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
+                            else if (i == 3 && C3 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C3 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
+                            else if (i == 4 && C4 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C4 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
+                            else if (i == 5 && C5 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C5 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
+                            else if (i == 6 && C6 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C6 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
+                            else if (i == 7 && C7 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C7 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
+                            else if (i == 8 && C8 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C8 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
+                            else if (i == 9 && C9 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C9 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
+                            else if (i == 10 && C10 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C10 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
+                            else if (i == 11 && C11 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C11 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
+                            else if (i == 12 && C12 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C12 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
+                            else if (i == 13 && C13 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C13 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
+                            else if (i == 14 && C14 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C14 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
+                            else if (i == 15 && C15 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C15 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
+                            else if (i == 16 && C16 != "")
+                            {
+                                ImageSource source = new BitmapImage(new Uri(folder + "/" + C16 + ".png", UriKind.RelativeOrAbsolute));
+                                images.Add(source);
+                            }
                 }
             }
             else
