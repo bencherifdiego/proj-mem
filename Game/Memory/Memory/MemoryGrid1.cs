@@ -109,6 +109,7 @@ namespace SpellenScherm1
                     }
                     reader.Close();
             if (data[0][2] == "SaveReady")
+<<<<<<< HEAD
             {
                 List<ImageSource> images = GetImagesList();
                 for (int row = 0; row < rows; row++)
@@ -140,12 +141,48 @@ namespace SpellenScherm1
                 }
             }
             else
+=======
+>>>>>>> 5020f98d3c436d48428388dcffdfcaf3bbb938c6
             {
                 List<ImageSource> images = GetImagesList();
                 for (int row = 0; row < rows; row++)
                 {
                     for (int col = 0; col < cols; col++)
                     {
+<<<<<<< HEAD
+=======
+
+                        if (data[row + 2][col] == "")
+                        {
+
+                        }
+                        else
+                        {
+                            // assign the back of the image
+                            Image back = new Image();
+                            back.Source = new BitmapImage(new Uri(folder + "/back.png", UriKind.RelativeOrAbsolute));
+
+                            // when one of the players click on a card
+                            back.MouseDown += new System.Windows.Input.MouseButtonEventHandler(CardClick);
+
+                            // set the cards
+                            back.Tag = images.First();
+                            images.RemoveAt(0);
+                            Grid.SetColumn(back, col);
+                            Grid.SetRow(back, row);
+                            grid.Children.Add(back);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                List<ImageSource> images = GetImagesList();
+                for (int row = 0; row < rows; row++)
+                {
+                    for (int col = 0; col < cols; col++)
+                    {
+>>>>>>> 5020f98d3c436d48428388dcffdfcaf3bbb938c6
                         {
                             // assign the back of the image
                             Image back = new Image();
@@ -237,7 +274,11 @@ namespace SpellenScherm1
                 for (int i = 1; i < 17; i++)
                 {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     if (i == 1)
+=======
+                    if(i == 1 && C1 != "")
+>>>>>>> 5020f98d3c436d48428388dcffdfcaf3bbb938c6
 =======
                     if(i == 1 && C1 != "")
 >>>>>>> 5020f98d3c436d48428388dcffdfcaf3bbb938c6
