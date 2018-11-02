@@ -169,62 +169,6 @@ namespace SpellenScherm1
                     }
                 }
             }
-            if (data[0][2] == "SaveReady")
-            {
-                List<ImageSource> images = GetImagesList();
-                for (int row = 0; row < rows; row++)
-                {
-                    for (int col = 0; col < cols; col++)
-                    {
-
-                        if (data[row + 2][col] == "")
-                        {
-
-                        }
-                        else
-                        {
-                            // assign the back of the image
-                            Image back = new Image();
-                            back.Source = new BitmapImage(new Uri(folder + "/back.png", UriKind.RelativeOrAbsolute));
-
-                            // when one of the players click on a card
-                            back.MouseDown += new System.Windows.Input.MouseButtonEventHandler(CardClick);
-
-                            // set the cards
-                            back.Tag = images.First();
-                            images.RemoveAt(0);
-                            Grid.SetColumn(back, col);
-                            Grid.SetRow(back, row);
-                            grid.Children.Add(back);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                List<ImageSource> images = GetImagesList();
-                for (int row = 0; row < rows; row++)
-                {
-                    for (int col = 0; col < cols; col++)
-                    {
-                        {
-                            // assign the back of the image
-                            Image back = new Image();
-                            back.Source = new BitmapImage(new Uri(folder + "/back.png", UriKind.RelativeOrAbsolute));
-
-                            // when one of the players click on a card
-                            back.MouseDown += new System.Windows.Input.MouseButtonEventHandler(CardClick);
-
-                            // set the cards
-                            back.Tag = images.First();
-                            images.RemoveAt(0);
-                            Grid.SetColumn(back, col);
-                            Grid.SetRow(back, row);
-                            grid.Children.Add(back);
-                        }
-                    }
-                }
-            }
         }
 
         /// <summary>
@@ -297,10 +241,6 @@ namespace SpellenScherm1
 
                 for (int i = 1; i < 17; i++)
                 {
-                    if (i == 1)
-
-                        if (i == 1 && C1 != "")
-
                             if (i == 1 && C1 != "")
                             {
                                 ImageSource source = new BitmapImage(new Uri(folder + "/" + C1 + ".png", UriKind.RelativeOrAbsolute));
