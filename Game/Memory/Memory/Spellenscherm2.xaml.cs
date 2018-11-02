@@ -212,5 +212,23 @@ namespace Memory
 
             folderDisplay.Content = "Folder: " + folderSet;
         }
+
+        public static bool muted = true;
+        static int countClicks = 0;
+        private void mute_Click(object sender, RoutedEventArgs e)
+        {
+            if (countClicks == 0)
+            {
+                MemoryGrid.mute = true;
+                mute.Background = Brushes.Red;
+            }
+            else if (countClicks == 1)
+            {
+                MemoryGrid.mute = false;
+                mute.Background = Brushes.White;
+                countClicks = countClicks - 2;
+            }
+            countClicks++;
+        }
     }
 }

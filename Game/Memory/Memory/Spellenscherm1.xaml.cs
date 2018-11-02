@@ -98,7 +98,7 @@ namespace Memory
             setFolderBox.Visibility = Visibility.Collapsed;
             setFolder.Visibility = Visibility.Collapsed;
             folderDisplay.Width = 1058;
-            
+
             // initialize grid
             grid = new MemoryGrid(GameGrid, 4, 4);
             start.Visibility = Visibility.Collapsed;
@@ -115,8 +115,8 @@ namespace Memory
             string userName1 = nameEnter1.Text;
             string userName2 = nameEnter2.Text;
 
-             MemoryGrid.Player1 = userName1;
-             MemoryGrid.Player2 = userName2;
+            MemoryGrid.Player1 = userName1;
+            MemoryGrid.Player2 = userName2;
 
             name1.Content = userName1;
             name2.Content = userName2;
@@ -253,6 +253,24 @@ namespace Memory
             MemoryGrid.folder = folderSet;
 
             folderDisplay.Content = "Folder: " + folderSet;
+        }
+
+        public static bool muted = true;
+        static int countClicks = 0;
+        private void mute_Click(object sender, RoutedEventArgs e)
+        {
+            if (countClicks == 0)
+            {
+                MemoryGrid.mute = true;
+                mute.Background = Brushes.Red;
+            }
+            else if (countClicks == 1)
+            {
+                MemoryGrid.mute = false;
+                mute.Background = Brushes.White;
+                countClicks = countClicks - 2;
+            }
+            countClicks++;
         }
     }
 }
