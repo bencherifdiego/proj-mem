@@ -42,8 +42,10 @@ namespace Memory
                         });
             }
             reader.Close();
-            if (data[0][3] == "P1" || data[0][3] == "P2")
+            if (data[0][2] == "SaveReady")
             {
+                MemoryGrid.folder = data[1][3];
+
                 setFolderBox.Visibility = Visibility.Collapsed;
                 setFolder.Visibility = Visibility.Collapsed;
                 folderDisplay.Width = 1058;
@@ -51,10 +53,6 @@ namespace Memory
                 grid = new MemoryGrid(GameGrid, 4, 4);
                 start.Visibility = Visibility.Collapsed;
                 turn1.Content = "Aan de beurt";
-            }
-            else
-            {
-                File.WriteAllText(path, delimiter + delimiter + delimiter + "P1" + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter);
             }
         }
 

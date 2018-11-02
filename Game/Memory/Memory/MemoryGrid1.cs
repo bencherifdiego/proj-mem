@@ -90,24 +90,75 @@ namespace SpellenScherm1
         /// </summary>
         private void AddImages()
         {
-            List<ImageSource> images = GetImagesList();
-            for (int row = 0; row < rows; row++)
+            //reads savefile
+                    string path = @"Save1.csv";
+
+                    var reader = new StreamReader(File.OpenRead(path));
+                    var data = new List<List<string>>();
+
+                    while (!reader.EndOfStream)
+                    {
+                        var line = reader.ReadLine();
+                        var values = line.Split(';');
+
+                        data.Add(new List<String> { values[0], values[1], values[2], values[3]
+                        });
+                    }
+                    reader.Close();
+            if (data[0][2] == "SaveReady")
             {
-                for (int col = 0; col < cols; col++)
+                List<ImageSource> images = GetImagesList();
+                for (int row = 0; row < rows; row++)
                 {
-                    // assign the back of the image
-                    Image back = new Image();
-                    back.Source = new BitmapImage(new Uri(folder + "/back.png", UriKind.RelativeOrAbsolute));
+                    for (int col = 0; col < cols; col++)
+                    {
 
-                    // when one of the players click on a card
-                    back.MouseDown += new System.Windows.Input.MouseButtonEventHandler(CardClick);
+                        if (data[row + 2][col] == "")
+                        {
 
-                    // set the cards
-                    back.Tag = images.First();
-                    images.RemoveAt(0);
-                    Grid.SetColumn(back, col);
-                    Grid.SetRow(back, row);
-                    grid.Children.Add(back);
+                        }
+                        else
+                        {
+                            // assign the back of the image
+                            Image back = new Image();
+                            back.Source = new BitmapImage(new Uri(folder + "/back.png", UriKind.RelativeOrAbsolute));
+
+                            // when one of the players click on a card
+                            back.MouseDown += new System.Windows.Input.MouseButtonEventHandler(CardClick);
+
+                            // set the cards
+                            back.Tag = images.First();
+                            images.RemoveAt(0);
+                            Grid.SetColumn(back, col);
+                            Grid.SetRow(back, row);
+                            grid.Children.Add(back);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                List<ImageSource> images = GetImagesList();
+                for (int row = 0; row < rows; row++)
+                {
+                    for (int col = 0; col < cols; col++)
+                    {
+                        {
+                            // assign the back of the image
+                            Image back = new Image();
+                            back.Source = new BitmapImage(new Uri(folder + "/back.png", UriKind.RelativeOrAbsolute));
+
+                            // when one of the players click on a card
+                            back.MouseDown += new System.Windows.Input.MouseButtonEventHandler(CardClick);
+
+                            // set the cards
+                            back.Tag = images.First();
+                            images.RemoveAt(0);
+                            Grid.SetColumn(back, col);
+                            Grid.SetRow(back, row);
+                            grid.Children.Add(back);
+                        }
+                    }
                 }
             }
         }
@@ -161,7 +212,7 @@ namespace SpellenScherm1
 
             string delimiter = ";";
 
-            if (data[0][3] == "P1" || data[0][3] == "P2")
+            if (data[0][2] == "SaveReady")
             {
                 C1 = data[2][0];
                 C2 = data[2][1];
@@ -182,82 +233,82 @@ namespace SpellenScherm1
 
                 for (int i = 1; i < 17; i++)
                 {
-                    if(i == 1)
+                    if(i == 1 && C1 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C1 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
                     }
-                    else if (i == 2)
+                    else if (i == 2 && C2 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C2 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
                     }
-                    if (i == 3)
+                    else if (i == 3 && C3 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C3 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
                     }
-                    else if (i == 4)
+                    else if (i == 4 && C4 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C4 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
                     }
-                    if (i == 5)
+                    else if (i == 5 && C5 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C5 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
                     }
-                    else if (i == 6)
+                    else if (i == 6 && C6 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C6 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
                     }
-                    if (i == 7)
+                    else if (i == 7 && C7 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C7 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
                     }
-                    else if (i == 8)
+                    else if (i == 8 && C8 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C8 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
                     }
-                    if (i == 9)
+                    else if (i == 9 && C9 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C9 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
                     }
-                    else if (i == 10)
+                    else if (i == 10 && C10 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C10 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
                     }
-                    if (i == 11)
+                    else if (i == 11 && C11 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C11 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
                     }
-                    else if (i == 12)
+                    else if (i == 12 && C12 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C12 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
                     }
-                    if (i == 13)
+                    else if (i == 13 && C13 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C13 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
                     }
-                    else if (i == 14)
+                    else if (i == 14 && C14 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C14 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
                     }
-                    if (i == 15)
+                    else if (i == 15 && C15 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C15 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
                     }
-                    else if (i == 16)
+                    else if (i == 16 && C16 != "")
                     {
                         ImageSource source = new BitmapImage(new Uri(folder + "/" + C16 + ".png", UriKind.RelativeOrAbsolute));
                         images.Add(source);
@@ -384,7 +435,7 @@ namespace SpellenScherm1
                 }
             }
             //writes the variables into the savefile
-            File.WriteAllText(path, data[0][0] + delimiter + data[0][1] + delimiter + data[0][2] + delimiter + data[0][3] + Environment.NewLine + "0" + delimiter + "0" + delimiter + data[1][2] + delimiter + data[1][3] + Environment.NewLine + C1 + delimiter + C2 + delimiter + C3 + delimiter + C4 + Environment.NewLine + C5 + delimiter + C6 + delimiter + C7 + delimiter + C8 + Environment.NewLine + C9 + delimiter + C10 + delimiter + C11 + delimiter + C12 + Environment.NewLine + C13 + delimiter + C14 + delimiter + C15 + delimiter + C16 + Environment.NewLine);
+            File.WriteAllText(path, data[0][0] + delimiter + data[0][1] + delimiter + "SaveReady" + delimiter + data[0][3] + Environment.NewLine + "0" + delimiter + "0" + delimiter + data[1][2] + delimiter + data[1][3] + Environment.NewLine + C1 + delimiter + C2 + delimiter + C3 + delimiter + C4 + Environment.NewLine + C5 + delimiter + C6 + delimiter + C7 + delimiter + C8 + Environment.NewLine + C9 + delimiter + C10 + delimiter + C11 + delimiter + C12 + Environment.NewLine + C13 + delimiter + C14 + delimiter + C15 + delimiter + C16 + Environment.NewLine);
 
             return images;
         }
