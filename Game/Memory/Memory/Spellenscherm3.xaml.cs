@@ -49,7 +49,7 @@ namespace Memory
         private void start_Click(object sender, RoutedEventArgs e)
         {
             // check if a custom folder has been set
-            if (Convert.ToString(folderDisplay.Content) == "Folder: /images")
+            if (Convert.ToString(folderDisplay.Content) == "Folder: /images" && Thema.Visibility != Visibility.Collapsed)
             {
                 MemoryGrid.folder = "/images";
             }
@@ -229,6 +229,33 @@ namespace Memory
                 countClicks = countClicks - 2;
             }
             countClicks++;
+        }
+
+        private void Thema_Click(object sender, RoutedEventArgs e)
+        {
+            thema.Visibility = Visibility.Visible;
+        }
+
+        private void default_Click(object sender, RoutedEventArgs e)
+        {
+            MemoryGrid.folder = "/images";
+            thema.Visibility = Visibility.Collapsed;
+            Thema.Visibility = Visibility.Collapsed;
+        }
+
+        private void vormen_Click(object sender, RoutedEventArgs e)
+        {
+            MemoryGrid.folder = "/vormen";
+            thema.Visibility = Visibility.Collapsed;
+            Thema.Visibility = Visibility.Collapsed;
+        }
+
+        private void disney_Click(object sender, RoutedEventArgs e)
+        {
+            MemoryGrid.folder = "/disney";
+            thema.Visibility = Visibility.Collapsed;
+            Thema.Visibility = Visibility.Collapsed;
+
         }
     }
 }
