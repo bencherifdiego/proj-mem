@@ -111,17 +111,6 @@ namespace Memory
         }
 
         /// <summary>
-        /// Load a game
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LoadGame_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-            new LoadSave().ShowDialog();
-        }
-
-        /// <summary>
         /// Reset the game
         /// </summary>
         /// <param name="sender"></param>
