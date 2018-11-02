@@ -58,7 +58,9 @@
     <Compile Include="Highscores.xaml.cs">
       <DependentUpon>Highscores.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoadSave.cs" />
+    <Compile Include="LoadSave.xaml.cs">
+      <DependentUpon>LoadSave.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MemoryGrid3.cs" />
     <Compile Include="MemoryGrid2.cs" />
     <Compile Include="MemoryGrid1.cs" />
@@ -76,6 +78,10 @@
       <DependentUpon>Spellenscherm1.xaml</DependentUpon>
     </Compile>
     <Page Include="Highscores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoadSave.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

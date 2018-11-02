@@ -23,17 +23,12 @@ namespace Memory
     public partial class Spellenscherm3 : Window
     {
         private MemoryGrid grid;
-        private string path = @"Save3.csv";
         public static string delimiter = ";";
 
         public Spellenscherm3()
         {
             InitializeComponent();
             main = this;
-            if (!File.Exists(path))
-            {
-                File.WriteAllText(path,delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter);
-            }
         }
 
         /// <summary>
