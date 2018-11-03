@@ -52,7 +52,6 @@ namespace Memory
 
                 grid = new MemoryGrid(GameGrid, 4, 4);
                 start.Visibility = Visibility.Collapsed;
-                turn1.Content = "Aan de beurt";
             }
         }
 

@@ -114,6 +114,13 @@ namespace SpellenScherm1
                 scoreName2Tot = Convert.ToInt32(data[1][1]);
                 UpdateScore();
 
+                if (data[0][3] == "P2")
+                {
+                    turnName1 = false;
+                    turnName2 = true;
+                }
+                ShowTurn();
+
                 List<ImageSource> images = GetImagesList();
                 for (int row = 0; row < rows; row++)
                 {
