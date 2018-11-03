@@ -439,9 +439,16 @@ namespace SpellenScherm1
                     }
                 }
             }
-            //writes the variables into the savefile
-            File.WriteAllText(path, data[0][0] + delimiter + data[0][1] + delimiter + "SaveReady" + delimiter + data[0][3] + Environment.NewLine + "0" + delimiter + "0" + delimiter + data[1][2] + delimiter + data[1][3] + Environment.NewLine + C1 + delimiter + C2 + delimiter + C3 + delimiter + C4 + Environment.NewLine + C5 + delimiter + C6 + delimiter + C7 + delimiter + C8 + Environment.NewLine + C9 + delimiter + C10 + delimiter + C11 + delimiter + C12 + Environment.NewLine + C13 + delimiter + C14 + delimiter + C15 + delimiter + C16 + Environment.NewLine);
-
+            if (data[0][2] == "SaveReady")
+            {
+                //writes the variables into the savefile
+                File.WriteAllText(path, data[0][0] + delimiter + data[0][1] + delimiter + "SaveReady" + delimiter + data[0][3] + Environment.NewLine + data[1][0] + delimiter + data[1][1] + delimiter + data[1][2] + delimiter + data[1][3] + Environment.NewLine + C1 + delimiter + C2 + delimiter + C3 + delimiter + C4 + Environment.NewLine + C5 + delimiter + C6 + delimiter + C7 + delimiter + C8 + Environment.NewLine + C9 + delimiter + C10 + delimiter + C11 + delimiter + C12 + Environment.NewLine + C13 + delimiter + C14 + delimiter + C15 + delimiter + C16 + Environment.NewLine);
+            }
+            else
+            {
+                //writes the variables into the savefile
+                File.WriteAllText(path, data[0][0] + delimiter + data[0][1] + delimiter + "SaveReady" + delimiter + data[0][3] + Environment.NewLine + "0" + delimiter + "0" + delimiter + data[1][2] + delimiter + data[1][3] + Environment.NewLine + C1 + delimiter + C2 + delimiter + C3 + delimiter + C4 + Environment.NewLine + C5 + delimiter + C6 + delimiter + C7 + delimiter + C8 + Environment.NewLine + C9 + delimiter + C10 + delimiter + C11 + delimiter + C12 + Environment.NewLine + C13 + delimiter + C14 + delimiter + C15 + delimiter + C16 + Environment.NewLine);
+            }
             return images;
         }
 
