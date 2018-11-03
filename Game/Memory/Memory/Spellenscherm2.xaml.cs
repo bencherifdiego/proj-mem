@@ -146,7 +146,7 @@ namespace Memory
         /// <param name="e"></param>
         private void SaveGame_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("You can't save your game yet.");
+            this.Close();
         }
 
         /// <summary>

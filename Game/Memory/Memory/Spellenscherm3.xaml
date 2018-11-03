@@ -42,7 +42,7 @@
         </Border>
         <Grid x:Name="menuBar" HorizontalAlignment="Left" Height="66" Margin="34,120,0,0" VerticalAlignment="Top" Width="1840" Background="#FFE47417" Visibility="Collapsed">
             <Button x:Name="CloseMenuBar" Content="Close" HorizontalAlignment="Left" Margin="1740,10,0,0" VerticalAlignment="Top" Width="80" Height="46" Click="CloseMenuBar_Click" FontFamily="Viner Hand ITC" Background="White" FontSize="20"/>
-            <Button x:Name="SaveGame" Content="Save Game" HorizontalAlignment="Left" Margin="20,10,0,10" Width="225" FontFamily="Viner Hand ITC" Background="White" FontSize="20" Click="SaveGame_Click"/>
+            <Button x:Name="SaveGame" Content="Save and Quit" HorizontalAlignment="Left" Margin="20,10,0,10" Width="225" FontFamily="Viner Hand ITC" Background="White" FontSize="20" Click="SaveGame_Click"/>
             <Button x:Name="ResetGame" Content="Reset Game" HorizontalAlignment="Left" Margin="280,10,0,0" VerticalAlignment="Top" Width="225" Height="46" FontFamily="Viner Hand ITC" Background="White" FontSize="20" Click="ResetGame_Click"/>
             <Button x:Name="toMain" Content="Main Screen" HorizontalAlignment="Left" Margin="539,10,0,0" VerticalAlignment="Top" Width="225" Height="46" FontFamily="Viner Hand ITC" Background="White" FontSize="20" Click="ToMain_Click"/>
             <Button x:Name="close" Content="Close Game" HorizontalAlignment="Left" Margin="803,10,0,0" VerticalAlignment="Top" Width="225" Height="46" FontFamily="Viner Hand ITC" Background="White" FontSize="20" Click="Close_Click"/>
@@ -53,7 +53,7 @@
         <Grid x:Name="set2" HorizontalAlignment="Left" Height="54" Margin="619,242,0,0" VerticalAlignment="Top" Width="106" Background="#FFE47417">
             <Button x:Name="setNames" Content="Set" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="86" Background="White" RenderTransformOrigin="0.585,0.971" Height="34" FontFamily="Viner Hand ITC" FontSize="20" Click="SetNames_Click"/>
         </Grid>
-        <TextBox x:Name="setFolderBox" HorizontalAlignment="Left" Height="34" Margin="779,207,0,0" TextWrapping="Wrap" Text="folder" VerticalAlignment="Top" Width="200" RenderTransformOrigin="0.311,0.552" Background="#FFE47417" FontSize="22" FontFamily="Viner Hand ITC"/>
+        <TextBox x:Name="setFolderBox" HorizontalAlignment="Left" Height="34" Margin="779,207,0,0" TextWrapping="Wrap" Text="/images" VerticalAlignment="Top" Width="200" RenderTransformOrigin="0.311,0.552" Background="#FFE47417" FontSize="22" FontFamily="Viner Hand ITC"/>
         <Button x:Name="setFolder" Content="Set" HorizontalAlignment="Left" Margin="982,208,0,0" VerticalAlignment="Top" Width="86" Background="White" RenderTransformOrigin="0.585,0.971" Height="34" FontFamily="Viner Hand ITC" FontSize="20" Click="SetFolder_Click"/>
         <Label x:Name="folderDisplay" x:FieldModifier="public" Content="Folder: /images" HorizontalAlignment="Left" Margin="779,242,0,0" VerticalAlignment="Top" Height="47" Width="756" Background="#FFE47417" FontSize="26" FontFamily="Viner Hand ITC" />
         <Grid x:Name="thema" HorizontalAlignment="Left" Height="92" Margin="1400,10,0,0" VerticalAlignment="Top" Width="502" Visibility="Collapsed">
