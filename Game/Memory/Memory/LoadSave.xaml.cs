@@ -29,5 +29,17 @@ namespace Memory
             this.Close();
             new Spellenscherm1().ShowDialog();
         }
+
+        private void Save2_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            new Spellenscherm2().ShowDialog();
+        }
+
+        private void Save3_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            new Spellenscherm3().ShowDialog();
+        }
     }
 }

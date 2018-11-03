@@ -93,24 +93,85 @@ namespace SpellenScherm3
         /// </summary>
         private void AddImages()
         {
-            List<ImageSource> images = GetImagesList();
-            for (int row = 0; row < rows; row++)
+            //reads savefile
+            string path = @"Save3.csv";
+
+            var reader = new StreamReader(File.OpenRead(path));
+            var data = new List<List<string>>();
+
+            while (!reader.EndOfStream)
             {
-                for (int col = 0; col < cols; col++)
+                var line = reader.ReadLine();
+                var values = line.Split(';');
+
+                data.Add(new List<String> { values[0], values[1], values[2], values[3]
+                        });
+            }
+            reader.Close();
+            if (data[0][2] == "SaveReady")
+            {
+                scoreName1Tot = Convert.ToInt32(data[1][0]);
+                scoreName2Tot = Convert.ToInt32(data[1][1]);
+                UpdateScore();
+
+                if (data[0][3] == "P2")
                 {
-                    // assign the back of the image
-                    Image back = new Image();
-                    back.Source = new BitmapImage(new Uri(folder + "/back.png", UriKind.RelativeOrAbsolute));
+                    turnName1 = false;
+                    turnName2 = true;
+                }
+                ShowTurn();
 
-                    // when one of the players click on a card
-                    back.MouseDown += new System.Windows.Input.MouseButtonEventHandler(CardClick);
+                List<ImageSource> images = GetImagesList();
+                for (int row = 0; row < rows; row++)
+                {
+                    for (int col = 0; col < cols; col++)
+                    {
 
-                    // set the cards
-                    back.Tag = images.First();
-                    images.RemoveAt(0);
-                    Grid.SetColumn(back, col);
-                    Grid.SetRow(back, row);
-                    grid.Children.Add(back);
+                        if (data[row + 2][col] == "")
+                        {
+
+                        }
+                        else
+                        {
+                            // assign the back of the image
+                            Image back = new Image();
+                            back.Source = new BitmapImage(new Uri(folder + "/back.png", UriKind.RelativeOrAbsolute));
+
+                            // when one of the players click on a card
+                            back.MouseDown += new System.Windows.Input.MouseButtonEventHandler(CardClick);
+
+                            // set the cards
+                            back.Tag = images.First();
+                            images.RemoveAt(0);
+                            Grid.SetColumn(back, col);
+                            Grid.SetRow(back, row);
+                            grid.Children.Add(back);
+                        }
+                    }
+                }
+                numberOfPairs = Convert.ToInt32(data[1][2]);
+            }
+            else
+            {
+                List<ImageSource> images = GetImagesList();
+                for (int row = 0; row < rows; row++)
+                {
+                    for (int col = 0; col < cols; col++)
+                    {
+                        // assign the back of the image
+                        Image back = new Image();
+                        back.Source = new BitmapImage(new Uri(folder + "/back.png", UriKind.RelativeOrAbsolute));
+
+                        // when one of the players click on a card
+                        back.MouseDown += new System.Windows.Input.MouseButtonEventHandler(CardClick);
+
+                        // set the cards
+                        back.Tag = images.First();
+                        images.RemoveAt(0);
+                        Grid.SetColumn(back, col);
+                        Grid.SetRow(back, row);
+                        grid.Children.Add(back);
+                    }
                 }
             }
         }
@@ -127,7 +188,7 @@ namespace SpellenScherm3
             // two lists that keep track of the used images, so there are only 2 cards of the sort
             List<string> random1 = new List<string>();
             List<string> random2 = new List<string>();
-            
+
             // variables used for saving the grind into a savefile
             string C1 = null;
             string C2 = null;
@@ -146,142 +207,255 @@ namespace SpellenScherm3
             string C15 = "";
             string C16 = "";
 
-            // randomizer
-            for (int i = 0; i < 16; i++)
+            //reads savefile
+            string path = @"Save3.csv";
+
+            var reader = new StreamReader(File.OpenRead(path));
+            var data = new List<List<string>>();
+
+            while (!reader.EndOfStream)
             {
-                if (i < 8)
-                {
-                    // a variable that represents the image that is going to be used
-                    int imageNR = 0;
+                var line = reader.ReadLine();
+                var values = line.Split(';');
 
-                    // generate a random int between 1 and 8
-                    Random rnd = new Random();
-                    imageNR = rnd.Next(1, 9);
-
-                    // if the genrated number already exists (in the list 'random1'), generate a new number
-                    if (random1.Contains(Convert.ToString(imageNR)))
-                    {
-                        i--;
-                    }
-                    // if the generated number does not exists (in the list 'random1'), grab the image with that number
-                    else
-                    {
-                        random1.Add(Convert.ToString(imageNR));
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + imageNR + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-
-                        //places the randomly picked cards into the variables
-                        if (i == 0)
-                        {
-                            C1 = Convert.ToString(imageNR);
-                        }
-                        if (i == 1)
-                        {
-                            C2 = Convert.ToString(imageNR);
-                        }
-                        if (i == 2)
-                        {
-                            C3 = Convert.ToString(imageNR);
-                        }
-                        if (i == 3)
-                        {
-                            C4 = Convert.ToString(imageNR);
-                        }
-                        if (i == 4)
-                        {
-                            C5 = Convert.ToString(imageNR);
-                        }
-                        if (i == 5)
-                        {
-                            C6 = Convert.ToString(imageNR);
-                        }
-                        if (i == 6)
-                        {
-                            C7 = Convert.ToString(imageNR);
-                        }
-                        if (i == 7)
-                        {
-                            C8 = Convert.ToString(imageNR);
-                        }
-                    }
-                }
-                if (i >= 8)
-                {
-                    // a variable that represents the image that is going to be used
-                    int imageNR = 0;
-
-                    // generate a random int between 1 and 8
-                    Random rnd = new Random();
-                    imageNR = rnd.Next(1, 9);
-
-                    // if the genrated number already exists (in the list 'random2'), generate a new number
-                    if (random2.Contains(Convert.ToString(imageNR)))
-                    {
-                        i--;
-                    }
-                    // if the generated number does not exists (in the list 'random2'), grab the image with that number
-                    else
-                    {
-                        random2.Add(Convert.ToString(imageNR));
-                        ImageSource source = new BitmapImage(new Uri(folder + "/" + imageNR + ".png", UriKind.RelativeOrAbsolute));
-                        images.Add(source);
-
-                        //reads savefile
-                        string path = @"Save3.csv";
-
-                        var reader = new StreamReader(File.OpenRead(path));
-                        var data = new List<List<string>>();
-
-                        while (!reader.EndOfStream)
-                        {
-                            var line = reader.ReadLine();
-                            var values = line.Split(';');
-
-                            data.Add(new List<String> { values[0], values[1], values[2], values[3]
+                data.Add(new List<String> { values[0], values[1], values[2], values[3]
                         });
-                        }
-                        reader.Close();
+            }
+            reader.Close();
 
-                        string delimiter = ";";
+            string delimiter = ";";
 
-                        //places the randomly picked cards into variables
-                        if (i == 8)
-                        {
-                            C9 = Convert.ToString(imageNR);
-                        }
-                        if (i == 9)
-                        {
-                            C10 = Convert.ToString(imageNR);
-                        }
-                        if (i == 10)
-                        {
-                            C11 = Convert.ToString(imageNR);
-                        }
-                        if (i == 11)
-                        {
-                            C12 = Convert.ToString(imageNR);
-                        }
-                        if (i == 12)
-                        {
-                            C13 = Convert.ToString(imageNR);
-                        }
-                        if (i == 13)
-                        {
-                            C14 = Convert.ToString(imageNR);
-                        }
-                        if (i == 14)
-                        {
-                            C15 = Convert.ToString(imageNR);
-                        }
-                        if (i == 15)
-                        {
-                            C16 = Convert.ToString(imageNR);
-                        }
+            if (data[0][2] == "SaveReady")
+            {
+                C1 = data[2][0];
+                C2 = data[2][1];
+                C3 = data[2][2];
+                C4 = data[2][3];
+                C5 = data[3][0];
+                C6 = data[3][1];
+                C7 = data[3][2];
+                C8 = data[3][3];
+                C9 = data[4][0];
+                C10 = data[4][1];
+                C11 = data[4][2];
+                C12 = data[4][3];
+                C13 = data[5][0];
+                C14 = data[5][1];
+                C15 = data[5][2];
+                C16 = data[5][3];
 
-                        //writes the variables into the savefile
-                        File.WriteAllText(path, data[0][0] + delimiter + data[0][1] + delimiter + data[0][2] + delimiter + data[0][3] + Environment.NewLine + "0" + delimiter + "0" + delimiter + data[1][2] + delimiter + data[1][3] + Environment.NewLine + C1 + delimiter + C2 + delimiter + C3 + delimiter + C4 + Environment.NewLine + C5 + delimiter + C6 + delimiter + C7 + delimiter + C8 + Environment.NewLine + C9 + delimiter + C10 + delimiter + C11 + delimiter + C12 + Environment.NewLine + C13 + delimiter + C14 + delimiter + C15 + delimiter + C16 + Environment.NewLine);
+                for (int i = 1; i < 17; i++)
+                {
+                    if (i == 1 && C1 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C1 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
+                    }
+                    else if (i == 2 && C2 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C2 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
+                    }
+                    else if (i == 3 && C3 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C3 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
+                    }
+                    else if (i == 4 && C4 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C4 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
+                    }
+                    else if (i == 5 && C5 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C5 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
+                    }
+                    else if (i == 6 && C6 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C6 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
+                    }
+                    else if (i == 7 && C7 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C7 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
+                    }
+                    else if (i == 8 && C8 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C8 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
+                    }
+                    else if (i == 9 && C9 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C9 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
+                    }
+                    else if (i == 10 && C10 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C10 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
+                    }
+                    else if (i == 11 && C11 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C11 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
+                    }
+                    else if (i == 12 && C12 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C12 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
+                    }
+                    else if (i == 13 && C13 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C13 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
+                    }
+                    else if (i == 14 && C14 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C14 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
+                    }
+                    else if (i == 15 && C15 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C15 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
+                    }
+                    else if (i == 16 && C16 != "")
+                    {
+                        ImageSource source = new BitmapImage(new Uri(folder + "/" + C16 + ".png", UriKind.RelativeOrAbsolute));
+                        images.Add(source);
                     }
                 }
+            }
+            else
+            {
+                // randomizer
+                for (int i = 0; i < 16; i++)
+                {
+                    if (i < 8)
+                    {
+                        // a variable that represents the image that is going to be used
+                        int imageNR = 0;
+
+                        // generate a random int between 1 and 8
+                        Random rnd = new Random();
+                        imageNR = rnd.Next(1, 9);
+
+                        // if the genrated number already exists (in the list 'random1'), generate a new number
+                        if (random1.Contains(Convert.ToString(imageNR)))
+                        {
+                            i--;
+                        }
+                        // if the generated number does not exists (in the list 'random1'), grab the image with that number
+                        else
+                        {
+                            random1.Add(Convert.ToString(imageNR));
+                            ImageSource source = new BitmapImage(new Uri(folder + "/" + imageNR + ".png", UriKind.RelativeOrAbsolute));
+                            images.Add(source);
+
+                            //places the randomly picked cards into the variables
+                            if (i == 0)
+                            {
+                                C1 = Convert.ToString(imageNR);
+                            }
+                            if (i == 1)
+                            {
+                                C2 = Convert.ToString(imageNR);
+                            }
+                            if (i == 2)
+                            {
+                                C3 = Convert.ToString(imageNR);
+                            }
+                            if (i == 3)
+                            {
+                                C4 = Convert.ToString(imageNR);
+                            }
+                            if (i == 4)
+                            {
+                                C5 = Convert.ToString(imageNR);
+                            }
+                            if (i == 5)
+                            {
+                                C6 = Convert.ToString(imageNR);
+                            }
+                            if (i == 6)
+                            {
+                                C7 = Convert.ToString(imageNR);
+                            }
+                            if (i == 7)
+                            {
+                                C8 = Convert.ToString(imageNR);
+                            }
+                        }
+                    }
+                    if (i >= 8)
+                    {
+                        // a variable that represents the image that is going to be used
+                        int imageNR = 0;
+
+                        // generate a random int between 1 and 8
+                        Random rnd = new Random();
+                        imageNR = rnd.Next(1, 9);
+
+                        // if the genrated number already exists (in the list 'random2'), generate a new number
+                        if (random2.Contains(Convert.ToString(imageNR)))
+                        {
+                            i--;
+                        }
+                        // if the generated number does not exists (in the list 'random2'), grab the image with that number
+                        else
+                        {
+                            random2.Add(Convert.ToString(imageNR));
+                            ImageSource source = new BitmapImage(new Uri(folder + "/" + imageNR + ".png", UriKind.RelativeOrAbsolute));
+                            images.Add(source);
+
+                            //places the randomly picked cards into variables
+                            if (i == 8)
+                            {
+                                C9 = Convert.ToString(imageNR);
+                            }
+                            if (i == 9)
+                            {
+                                C10 = Convert.ToString(imageNR);
+                            }
+                            if (i == 10)
+                            {
+                                C11 = Convert.ToString(imageNR);
+                            }
+                            if (i == 11)
+                            {
+                                C12 = Convert.ToString(imageNR);
+                            }
+                            if (i == 12)
+                            {
+                                C13 = Convert.ToString(imageNR);
+                            }
+                            if (i == 13)
+                            {
+                                C14 = Convert.ToString(imageNR);
+                            }
+                            if (i == 14)
+                            {
+                                C15 = Convert.ToString(imageNR);
+                            }
+                            if (i == 15)
+                            {
+                                C16 = Convert.ToString(imageNR);
+                            }
+                        }
+                    }
+                }
+            }
+            if (data[0][2] == "SaveReady")
+            {
+                //writes the variables into the savefile
+                File.WriteAllText(path, data[0][0] + delimiter + data[0][1] + delimiter + "SaveReady" + delimiter + data[0][3] + Environment.NewLine + data[1][0] + delimiter + data[1][1] + delimiter + data[1][2] + delimiter + data[1][3] + Environment.NewLine + C1 + delimiter + C2 + delimiter + C3 + delimiter + C4 + Environment.NewLine + C5 + delimiter + C6 + delimiter + C7 + delimiter + C8 + Environment.NewLine + C9 + delimiter + C10 + delimiter + C11 + delimiter + C12 + Environment.NewLine + C13 + delimiter + C14 + delimiter + C15 + delimiter + C16 + Environment.NewLine);
+            }
+            else
+            {
+                //writes the variables into the savefile
+                File.WriteAllText(path, data[0][0] + delimiter + data[0][1] + delimiter + "SaveReady" + delimiter + data[0][3] + Environment.NewLine + "0" + delimiter + "0" + delimiter + 0 + delimiter + data[1][3] + Environment.NewLine + C1 + delimiter + C2 + delimiter + C3 + delimiter + C4 + Environment.NewLine + C5 + delimiter + C6 + delimiter + C7 + delimiter + C8 + Environment.NewLine + C9 + delimiter + C10 + delimiter + C11 + delimiter + C12 + Environment.NewLine + C13 + delimiter + C14 + delimiter + C15 + delimiter + C16 + Environment.NewLine);
             }
             return images;
         }
@@ -425,7 +599,7 @@ namespace SpellenScherm3
             {
                 PlaySoundNegative();
                 ResetCards(Image1, Image2);
-            }   
+            }
 
             CheckTurn();
 
@@ -568,7 +742,7 @@ namespace SpellenScherm3
 
                 data[1][0] = Convert.ToString(Convert.ToInt32(data[1][0]) + 1);
 
-                File.WriteAllText(path, data[0][0] + delimiter + data[0][1] + delimiter + data[0][2] + delimiter + data[0][3] + Environment.NewLine + data[1][0] + delimiter + data[1][1] + delimiter + data[1][2] + delimiter + data[1][3] + Environment.NewLine + data[2][0] + delimiter + data[2][1] + delimiter + data[2][2] + delimiter + data[2][3] + Environment.NewLine + data[3][0] + delimiter + data[3][1] + delimiter + data[3][2] + delimiter + data[3][3] + Environment.NewLine + data[4][0] + delimiter + data[4][1] + delimiter + data[4][2] + delimiter + data[4][3] + Environment.NewLine + data[5][0] + delimiter + data[5][1] + delimiter + data[5][2] + delimiter + data[5][3] + Environment.NewLine);
+                File.WriteAllText(path, data[0][0] + delimiter + data[0][1] + delimiter + data[0][2] + delimiter + data[0][3] + Environment.NewLine + data[1][0] + delimiter + data[1][1] + delimiter + numberOfPairs + delimiter + data[1][3] + Environment.NewLine + data[2][0] + delimiter + data[2][1] + delimiter + data[2][2] + delimiter + data[2][3] + Environment.NewLine + data[3][0] + delimiter + data[3][1] + delimiter + data[3][2] + delimiter + data[3][3] + Environment.NewLine + data[4][0] + delimiter + data[4][1] + delimiter + data[4][2] + delimiter + data[4][3] + Environment.NewLine + data[5][0] + delimiter + data[5][1] + delimiter + data[5][2] + delimiter + data[5][3] + Environment.NewLine);
             }
             // if its player2's turn, increase their score
             else if (turnName2 == true)
@@ -578,7 +752,7 @@ namespace SpellenScherm3
 
                 data[1][1] = Convert.ToString(Convert.ToInt32(data[1][1]) + 1);
 
-                File.WriteAllText(path, data[0][0] + delimiter + data[0][1] + delimiter + data[0][2] + delimiter + data[0][3] + Environment.NewLine + data[1][0] + delimiter + data[1][1] + delimiter + data[1][2] + delimiter + data[1][3] + Environment.NewLine + data[2][0] + delimiter + data[2][1] + delimiter + data[2][2] + delimiter + data[2][3] + Environment.NewLine + data[3][0] + delimiter + data[3][1] + delimiter + data[3][2] + delimiter + data[3][3] + Environment.NewLine + data[4][0] + delimiter + data[4][1] + delimiter + data[4][2] + delimiter + data[4][3] + Environment.NewLine + data[5][0] + delimiter + data[5][1] + delimiter + data[5][2] + delimiter + data[5][3] + Environment.NewLine);
+                File.WriteAllText(path, data[0][0] + delimiter + data[0][1] + delimiter + data[0][2] + delimiter + data[0][3] + Environment.NewLine + data[1][0] + delimiter + data[1][1] + delimiter + numberOfPairs + delimiter + data[1][3] + Environment.NewLine + data[2][0] + delimiter + data[2][1] + delimiter + data[2][2] + delimiter + data[2][3] + Environment.NewLine + data[3][0] + delimiter + data[3][1] + delimiter + data[3][2] + delimiter + data[3][3] + Environment.NewLine + data[4][0] + delimiter + data[4][1] + delimiter + data[4][2] + delimiter + data[4][3] + Environment.NewLine + data[5][0] + delimiter + data[5][1] + delimiter + data[5][2] + delimiter + data[5][3] + Environment.NewLine);
             }
 
             // wait a third of a second, show the second card first

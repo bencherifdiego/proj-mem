@@ -24,11 +24,35 @@ namespace Memory
     {
         private MemoryGrid grid;
         public static string delimiter = ";";
-
+        string path = @"Save3.csv";
         public Spellenscherm3()
         {
             InitializeComponent();
             main = this;
+
+            var reader = new StreamReader(File.OpenRead(path));
+            var data = new List<List<string>>();
+
+            while (!reader.EndOfStream)
+            {
+                var line = reader.ReadLine();
+                var values = line.Split(';');
+
+                data.Add(new List<String> { values[0], values[1], values[2], values[3]
+                        });
+            }
+            reader.Close();
+            if (data[0][2] == "SaveReady")
+            {
+                MemoryGrid.folder = data[1][3];
+
+                setFolderBox.Visibility = Visibility.Collapsed;
+                setFolder.Visibility = Visibility.Collapsed;
+                folderDisplay.Width = 1058;
+
+                grid = new MemoryGrid(GameGrid, 4, 4);
+                start.Visibility = Visibility.Collapsed;
+            }
         }
 
         /// <summary>
@@ -53,10 +77,25 @@ namespace Memory
             {
                 MemoryGrid.folder = "/images";
             }
+            var reader = new StreamReader(File.OpenRead(path));
+            var data = new List<List<string>>();
+
+            while (!reader.EndOfStream)
+            {
+                var line = reader.ReadLine();
+                var values = line.Split(';');
+
+                data.Add(new List<String> { values[0], values[1], values[2], values[3]
+                        });
+            }
+            reader.Close();
+
+            File.WriteAllText(path, data[0][0] + delimiter + data[0][1] + delimiter + data[0][2] + delimiter + data[0][3] + Environment.NewLine + data[1][0] + delimiter + data[1][1] + delimiter + data[1][2] + delimiter + MemoryGrid.folder + Environment.NewLine + data[2][0] + delimiter + data[2][1] + delimiter + data[2][2] + delimiter + data[2][3] + Environment.NewLine + data[3][0] + delimiter + data[3][1] + delimiter + data[3][2] + delimiter + data[3][3] + Environment.NewLine + data[4][0] + delimiter + data[4][1] + delimiter + data[4][2] + delimiter + data[4][3] + Environment.NewLine + data[5][0] + delimiter + data[5][1] + delimiter + data[5][2] + delimiter + data[5][3] + Environment.NewLine);
+
             setFolderBox.Visibility = Visibility.Collapsed;
             setFolder.Visibility = Visibility.Collapsed;
             folderDisplay.Width = 1058;
-            
+
             // initialize grid
             grid = new MemoryGrid(GameGrid, 4, 4);
             start.Visibility = Visibility.Collapsed;
@@ -73,8 +112,8 @@ namespace Memory
             string userName1 = nameEnter1.Text;
             string userName2 = nameEnter2.Text;
 
-             MemoryGrid.Player1 = userName1;
-             MemoryGrid.Player2 = userName2;
+            MemoryGrid.Player1 = userName1;
+            MemoryGrid.Player2 = userName2;
 
             name1.Content = userName1;
             name2.Content = userName2;
