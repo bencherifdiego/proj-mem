@@ -44,7 +44,7 @@ namespace Memory
             reader.Close();
             if (data[0][2] == "SaveReady")
             {
-                MemoryGrid.folder = data[1][3];
+                MemoryGrid.Folder = data[1][3];
 
                 setFolderBox.Visibility = Visibility.Collapsed;
                 setFolder.Visibility = Visibility.Collapsed;
@@ -60,7 +60,7 @@ namespace Memory
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void menu_Click(object sender, RoutedEventArgs e)
+        private void Menu_Click(object sender, RoutedEventArgs e)
         {
             menuBar.Visibility = Visibility.Visible;
         }
@@ -70,12 +70,12 @@ namespace Memory
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void start_Click(object sender, RoutedEventArgs e)
+        private void Start_Click(object sender, RoutedEventArgs e)
         {
             // check if a custom folder has been set
             if (Convert.ToString(folderDisplay.Content) == "Folder: /images" && Thema.Visibility != Visibility.Collapsed)
             {
-                MemoryGrid.folder = "/images";
+                MemoryGrid.Folder = "/images";
             }
             var reader = new StreamReader(File.OpenRead(path));
             var data = new List<List<string>>();
@@ -90,7 +90,7 @@ namespace Memory
             }
             reader.Close();
 
-            File.WriteAllText(path, data[0][0] + delimiter + data[0][1] + delimiter + data[0][2] + delimiter + data[0][3] + Environment.NewLine + data[1][0] + delimiter + data[1][1] + delimiter + data[1][2] + delimiter + MemoryGrid.folder + Environment.NewLine + data[2][0] + delimiter + data[2][1] + delimiter + data[2][2] + delimiter + data[2][3] + Environment.NewLine + data[3][0] + delimiter + data[3][1] + delimiter + data[3][2] + delimiter + data[3][3] + Environment.NewLine + data[4][0] + delimiter + data[4][1] + delimiter + data[4][2] + delimiter + data[4][3] + Environment.NewLine + data[5][0] + delimiter + data[5][1] + delimiter + data[5][2] + delimiter + data[5][3] + Environment.NewLine);
+            File.WriteAllText(path, data[0][0] + delimiter + data[0][1] + delimiter + data[0][2] + delimiter + data[0][3] + Environment.NewLine + data[1][0] + delimiter + data[1][1] + delimiter + data[1][2] + delimiter + MemoryGrid.Folder + Environment.NewLine + data[2][0] + delimiter + data[2][1] + delimiter + data[2][2] + delimiter + data[2][3] + Environment.NewLine + data[3][0] + delimiter + data[3][1] + delimiter + data[3][2] + delimiter + data[3][3] + Environment.NewLine + data[4][0] + delimiter + data[4][1] + delimiter + data[4][2] + delimiter + data[4][3] + Environment.NewLine + data[5][0] + delimiter + data[5][1] + delimiter + data[5][2] + delimiter + data[5][3] + Environment.NewLine);
 
             setFolderBox.Visibility = Visibility.Collapsed;
             setFolder.Visibility = Visibility.Collapsed;
@@ -107,7 +107,7 @@ namespace Memory
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void setNames_Click(object sender, RoutedEventArgs e)
+        private void SetNames_Click(object sender, RoutedEventArgs e)
         {
             string userName1 = nameEnter1.Text;
             string userName2 = nameEnter2.Text;
@@ -165,7 +165,7 @@ namespace Memory
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void toMain_Click(object sender, RoutedEventArgs e)
+        private void ToMain_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
@@ -175,7 +175,7 @@ namespace Memory
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void close_Click(object sender, RoutedEventArgs e)
+        private void Close_Click(object sender, RoutedEventArgs e)
         {
             for (int intCounter = App.Current.Windows.Count - 1; intCounter >= 0; intCounter--)
                 App.Current.Windows[intCounter].Close();
@@ -217,13 +217,13 @@ namespace Memory
             set { Dispatcher.Invoke(new Action(() => { scoreName2.Content = value; })); }
         }
 
-        internal string setTurn1
+        internal string SetTurn1
         {
             get { return turn1.Content.ToString(); }
             set { Dispatcher.Invoke(new Action(() => { turn1.Content = value; })); }
         }
 
-        internal string setTurn2
+        internal string SetTurn2
         {
             get { return turn2.Content.ToString(); }
             set { Dispatcher.Invoke(new Action(() => { turn2.Content = value; })); }
@@ -234,26 +234,26 @@ namespace Memory
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void setFolder_Click(object sender, RoutedEventArgs e)
+        private void SetFolder_Click(object sender, RoutedEventArgs e)
         {
             string folderSet = setFolderBox.Text;
-            MemoryGrid.folder = folderSet;
+            MemoryGrid.Folder = folderSet;
 
             folderDisplay.Content = "Folder: " + folderSet;
         }
 
         public static bool muted = true;
         static int countClicks = 0;
-        private void mute_Click(object sender, RoutedEventArgs e)
+        private void Mute_Click(object sender, RoutedEventArgs e)
         {
             if (countClicks == 0)
             {
-                MemoryGrid.mute = true;
+                MemoryGrid.Mute = true;
                 mute.Background = Brushes.Red;
             }
             else if (countClicks == 1)
             {
-                MemoryGrid.mute = false;
+                MemoryGrid.Mute = false;
                 mute.Background = Brushes.White;
                 countClicks = countClicks - 2;
             }
@@ -265,23 +265,23 @@ namespace Memory
             thema.Visibility = Visibility.Visible;
         }
 
-        private void default_Click(object sender, RoutedEventArgs e)
+        private void Default_Click(object sender, RoutedEventArgs e)
         {
-            MemoryGrid.folder = "/images";
+            MemoryGrid.Folder = "/images";
             thema.Visibility = Visibility.Collapsed;
             Thema.Visibility = Visibility.Collapsed;
         }
 
-        private void vormen_Click(object sender, RoutedEventArgs e)
+        private void Vormen_Click(object sender, RoutedEventArgs e)
         {
-            MemoryGrid.folder = "/vormen";
+            MemoryGrid.Folder = "/vormen";
             thema.Visibility = Visibility.Collapsed;
             Thema.Visibility = Visibility.Collapsed;
         }
 
-        private void disney_Click(object sender, RoutedEventArgs e)
+        private void Disney_Click(object sender, RoutedEventArgs e)
         {
-            MemoryGrid.folder = "/disney";
+            MemoryGrid.Folder = "/disney";
             thema.Visibility = Visibility.Collapsed;
             Thema.Visibility = Visibility.Collapsed;
 

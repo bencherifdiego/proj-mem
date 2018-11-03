@@ -487,15 +487,15 @@ namespace SpellenScherm2
             // if its player1's turn, show 'Aan de beurt' under their name
             if (turnName1 == true)
             {
-                Spellenscherm2.main.setTurn1 = "Aan de beurt";
-                Spellenscherm2.main.setTurn2 = "";
+                Spellenscherm2.main.SetTurn1 = "Aan de beurt";
+                Spellenscherm2.main.SetTurn2 = "";
 
             }
             // if its player2's turn, show 'Aan de beurt' under their name
             else if (turnName2 == true)
             {
-                Spellenscherm2.main.setTurn1 = "";
-                Spellenscherm2.main.setTurn2 = "Aan de beurt";
+                Spellenscherm2.main.SetTurn1 = "";
+                Spellenscherm2.main.SetTurn2 = "Aan de beurt";
             }
         }
 

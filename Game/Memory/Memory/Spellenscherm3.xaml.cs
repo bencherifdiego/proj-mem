@@ -60,7 +60,7 @@ namespace Memory
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void menu_Click(object sender, RoutedEventArgs e)
+        private void Menu_Click(object sender, RoutedEventArgs e)
         {
             menuBar.Visibility = Visibility.Visible;
         }
@@ -70,7 +70,7 @@ namespace Memory
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void start_Click(object sender, RoutedEventArgs e)
+        private void Start_Click(object sender, RoutedEventArgs e)
         {
             // check if a custom folder has been set
             if (Convert.ToString(folderDisplay.Content) == "Folder: /images" && Thema.Visibility != Visibility.Collapsed)
@@ -107,7 +107,7 @@ namespace Memory
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void setNames_Click(object sender, RoutedEventArgs e)
+        private void SetNames_Click(object sender, RoutedEventArgs e)
         {
             string userName1 = nameEnter1.Text;
             string userName2 = nameEnter2.Text;
@@ -165,7 +165,7 @@ namespace Memory
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void toMain_Click(object sender, RoutedEventArgs e)
+        private void ToMain_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
@@ -175,7 +175,7 @@ namespace Memory
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void close_Click(object sender, RoutedEventArgs e)
+        private void Close_Click(object sender, RoutedEventArgs e)
         {
             for (int intCounter = App.Current.Windows.Count - 1; intCounter >= 0; intCounter--)
                 App.Current.Windows[intCounter].Close();
@@ -217,13 +217,13 @@ namespace Memory
             set { Dispatcher.Invoke(new Action(() => { scoreName2.Content = value; })); }
         }
 
-        internal string setTurn1
+        internal string SetTurn1
         {
             get { return turn1.Content.ToString(); }
             set { Dispatcher.Invoke(new Action(() => { turn1.Content = value; })); }
         }
 
-        internal string setTurn2
+        internal string SetTurn2
         {
             get { return turn2.Content.ToString(); }
             set { Dispatcher.Invoke(new Action(() => { turn2.Content = value; })); }
@@ -234,7 +234,7 @@ namespace Memory
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void setFolder_Click(object sender, RoutedEventArgs e)
+        private void SetFolder_Click(object sender, RoutedEventArgs e)
         {
             string folderSet = setFolderBox.Text;
             MemoryGrid.folder = folderSet;
@@ -244,7 +244,7 @@ namespace Memory
 
         public static bool muted = true;
         static int countClicks = 0;
-        private void mute_Click(object sender, RoutedEventArgs e)
+        private void Mute_Click(object sender, RoutedEventArgs e)
         {
             if (countClicks == 0)
             {
@@ -265,21 +265,21 @@ namespace Memory
             thema.Visibility = Visibility.Visible;
         }
 
-        private void default_Click(object sender, RoutedEventArgs e)
+        private void Default_Click(object sender, RoutedEventArgs e)
         {
             MemoryGrid.folder = "/images";
             thema.Visibility = Visibility.Collapsed;
             Thema.Visibility = Visibility.Collapsed;
         }
 
-        private void vormen_Click(object sender, RoutedEventArgs e)
+        private void Vormen_Click(object sender, RoutedEventArgs e)
         {
             MemoryGrid.folder = "/vormen";
             thema.Visibility = Visibility.Collapsed;
             Thema.Visibility = Visibility.Collapsed;
         }
 
-        private void disney_Click(object sender, RoutedEventArgs e)
+        private void Disney_Click(object sender, RoutedEventArgs e)
         {
             MemoryGrid.folder = "/disney";
             thema.Visibility = Visibility.Collapsed;
