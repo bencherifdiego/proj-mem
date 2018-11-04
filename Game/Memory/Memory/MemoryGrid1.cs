@@ -108,12 +108,15 @@ namespace SpellenScherm1
                         });
             }
             reader.Close();
+
             if (data[0][2] == "SaveReady")
             {
+                //Loads the score
                 scoreName1Tot = Convert.ToInt32(data[1][0]);
                 scoreName2Tot = Convert.ToInt32(data[1][1]);
                 UpdateScore();
 
+                //Loads player turn
                 if (data[0][3] == "P2")
                 {
                     turnName1 = false;
@@ -121,6 +124,7 @@ namespace SpellenScherm1
                 }
                 ShowTurn();
 
+                //Loads in player names
                 if (data[0][0] != "")
                 {
                     Spellenscherm1.main.name1.Content = data[0][0];
@@ -132,6 +136,7 @@ namespace SpellenScherm1
                     Spellenscherm1.main.set2.Visibility = Visibility.Collapsed;
                 }
 
+                //Loads in cards
                 List<ImageSource> images = GetImagesList();
                 for (int row = 0; row < rows; row++)
                 {
@@ -236,6 +241,7 @@ namespace SpellenScherm1
 
             string delimiter = ";";
 
+            //Places savedata inside variables
             if (data[0][2] == "SaveReady")
             {
                 C1 = data[2][0];
@@ -255,6 +261,7 @@ namespace SpellenScherm1
                 C15 = data[5][2];
                 C16 = data[5][3];
 
+                //Places cards in the right position and skips the ones already gone
                 for (int i = 1; i < 17; i++)
                 {
                             if (i == 1 && C1 != "")
@@ -694,7 +701,7 @@ namespace SpellenScherm1
         }
 
         /// <summary>
-        /// When the same card is doubleclicked, the turn is kept
+        /// When the same card is doubleclicked, the turn is passed on
         /// </summary>
         private void StayTurn()
         {
