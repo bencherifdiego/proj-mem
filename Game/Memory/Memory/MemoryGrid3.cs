@@ -9,8 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.IO;
-using System.Xml.Serialization;
 
+// memorygrid of save 3
 namespace SpellenScherm3
 {
     public class MemoryGrid
@@ -885,7 +885,7 @@ namespace SpellenScherm3
             int OldHighscore4 = Memory.Properties.Settings.Default.highscore4;
             int OldHighscore5 = Memory.Properties.Settings.Default.highscore5;
 
-            // for player1
+            // rearrange the highscore board, use player 2
             if (scoreName1Tot > OldHighscore1 && scoreName1Tot != OldHighscore1)
             {
                 Memory.Properties.Settings.Default.highscore2 = Memory.Properties.Settings.Default.highscore1;
@@ -939,7 +939,7 @@ namespace SpellenScherm3
                 Memory.Properties.Settings.Default.highscore5 = scoreName1Tot;
                 Memory.Properties.Settings.Default.name5 = Player1;
             }
-            // for player2
+            // rearrange the highscore board, use player 2
             if (scoreName2Tot > OldHighscore1 && scoreName2Tot != OldHighscore1)
             {
                 Memory.Properties.Settings.Default.highscore2 = Memory.Properties.Settings.Default.highscore1;
