@@ -286,5 +286,57 @@ namespace Memory
             Thema.Visibility = Visibility.Collapsed;
 
         }
+
+        private void SetBackground_Click(object sender, RoutedEventArgs e)
+        {
+            SetBackground.Visibility = Visibility.Visible;
+        }
+
+        private void SetBackgroundButton_Click(object sender, RoutedEventArgs e)
+        {
+            string Background = EnterBackground.Text;
+
+            if (Background == "Red" || Background == "red")
+            {
+                Home.Background = Brushes.Red;
+                SetBackground.Visibility = Visibility.Collapsed;
+            }
+            else if (Background == "Yellow" || Background == "yellow")
+            {
+                Home.Background = Brushes.Yellow;
+                SetBackground.Visibility = Visibility.Collapsed;
+            }
+            else if (Background == "Green" || Background == "green")
+            {
+                Home.Background = Brushes.Green;
+                SetBackground.Visibility = Visibility.Collapsed;
+            }
+            else if (Background == "Blue" || Background == "blue")
+            {
+                SolidColorBrush color = new SolidColorBrush();
+                color = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF51BDDC"));
+                Home.Background = color;
+                SetBackground.Visibility = Visibility.Collapsed;
+            }
+            else if (Background == "Purple" || Background == "purple")
+            {
+                Home.Background = Brushes.Purple;
+                SetBackground.Visibility = Visibility.Collapsed;
+            }
+            else if (Background == "Black" || Background == "black")
+            {
+                Home.Background = Brushes.Black;
+                SetBackground.Visibility = Visibility.Collapsed;
+            }
+            else if (Background == "White" || Background == "white")
+            {
+                Home.Background = Brushes.White;
+                SetBackground.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                MessageBox.Show("Not a valid color!");
+            }
+        }
     }
 }

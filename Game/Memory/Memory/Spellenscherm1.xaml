@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Memory"
         mc:Ignorable="d"
         Title="Spellenscherm1" Height="1080" Width="1920" WindowState="Maximized">
-    <Grid Background="#FF51BDDC">
+    <Grid x:Name="Home" Background="#FF51BDDC">
 
-        <Grid HorizontalAlignment="Left" Height="107" VerticalAlignment="Top" Width="1920" Background="#FFE47417" Margin="0,0,-8,0">
+        <Grid HorizontalAlignment="Left" Height="107" VerticalAlignment="Top" Width="1920" Background="#FFE47417" Margin="-8,0,0,0">
             <Button x:Name="menu" Content="Menu |||" HorizontalAlignment="Left" Margin="0,66,0,0" VerticalAlignment="Top" Width="212" Background="White" RenderTransformOrigin="0.5,0.5" FontFamily="Viner Hand ITC" Height="41" FontSize="20" Click="Menu_Click"/>
         </Grid>
         <Label Content="Memory Game V1.0" HorizontalAlignment="Left" Height="92" Margin="779,8,0,0" VerticalAlignment="Top" Width="528" Background="{x:Null}" FontFamily="Viner Hand ITC" FontSize="48" Foreground="White"/>
@@ -48,7 +48,7 @@
             <Button x:Name="close" Content="Close Game" HorizontalAlignment="Left" Margin="803,10,0,0" VerticalAlignment="Top" Width="225" Height="46" FontFamily="Viner Hand ITC" Background="White" FontSize="20" Click="Close_Click"/>
             <Button x:Name="Help" Content="Help" HorizontalAlignment="Left" Margin="1067,10,0,0" VerticalAlignment="Top" Width="225" Height="46" FontFamily="Viner Hand ITC" Background="White" FontSize="20" Click="Help_Click"/>
             <Button x:Name="Thema" Content="Thema's" HorizontalAlignment="Left" Margin="1333,10,0,0" VerticalAlignment="Top" Width="225" Height="46" FontFamily="Viner Hand ITC" Background="White" FontSize="20" Click="Thema_Click"/>
-            <Button x:Name="mute" Content="Mute" HorizontalAlignment="Left" Margin="1610,10,0,0" VerticalAlignment="Top" Width="80" Height="46" Click="Mute_Click" FontFamily="Viner Hand ITC" Background="White" FontSize="20"/>
+            <Button x:Name="mute" Content="Mute" HorizontalAlignment="Left" Margin="1610,10,0,0" VerticalAlignment="Top" Width="80" Height="46" Click="Mute_Click" FontFamily="Viner Hand ITC" Background="White" FontSize="20" RenderTransformOrigin="0.744,0.609"/>
         </Grid>
         <Grid x:Name="set2" HorizontalAlignment="Left" Height="54" Margin="619,242,0,0" VerticalAlignment="Top" Width="106" Background="#FFE47417">
             <Button x:Name="setNames" Content="Set" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="86" Background="White" RenderTransformOrigin="0.585,0.971" Height="34" FontFamily="Viner Hand ITC" FontSize="20" Click="SetNames_Click"/>
@@ -56,11 +56,19 @@
         <TextBox x:Name="setFolderBox" HorizontalAlignment="Left" Height="34" Margin="779,207,0,0" TextWrapping="Wrap" Text="/images" VerticalAlignment="Top" Width="200" RenderTransformOrigin="0.311,0.552" Background="#FFE47417" FontSize="22" FontFamily="Viner Hand ITC"/>
         <Button x:Name="setFolder" Content="Set" HorizontalAlignment="Left" Margin="982,208,0,0" VerticalAlignment="Top" Width="86" Background="White" RenderTransformOrigin="0.585,0.971" Height="34" FontFamily="Viner Hand ITC" FontSize="20" Click="SetFolder_Click"/>
         <Label x:Name="folderDisplay" x:FieldModifier="public" Content="Folder: /images" HorizontalAlignment="Left" Margin="779,242,0,0" VerticalAlignment="Top" Height="47" Width="756" Background="#FFE47417" FontSize="26" FontFamily="Viner Hand ITC" />
-        <Grid x:Name="thema" HorizontalAlignment="Left" Height="92" Margin="1400,10,0,0" VerticalAlignment="Top" Width="502" Visibility="Collapsed">
-            <Button x:Name="default" Content="Default" HorizontalAlignment="Left" Height="72" Margin="10,10,0,0" VerticalAlignment="Top" Width="111" FontFamily="Viner Hand ITC" Background="White" Click="Default_Click"/>
-            <Button x:Name="vormen" Content="Vormen" HorizontalAlignment="Left" Height="72" Margin="182,10,0,0" VerticalAlignment="Top" Width="111" FontFamily="Viner Hand ITC" Background="White" Click="Vormen_Click"/>
-            <Button x:Name="disney" Content="Disney" HorizontalAlignment="Left" Height="72" Margin="347,10,0,0" VerticalAlignment="Top" Width="111" FontFamily="Viner Hand ITC" Background="White" Click="Disney_Click"/>
+        <Grid x:Name="thema" HorizontalAlignment="Left" Height="92" Margin="1255,10,0,0" VerticalAlignment="Top" Width="647" Visibility="Collapsed">
+            <Button x:Name="default" Content="Default" HorizontalAlignment="Left" Height="46" Margin="10,36,0,0" VerticalAlignment="Top" Width="112" FontFamily="Viner Hand ITC" Background="White" Click="Default_Click"/>
+            <Button x:Name="vormen" Content="Vormen" HorizontalAlignment="Left" Height="46" Margin="161,36,0,0" VerticalAlignment="Top" Width="112" FontFamily="Viner Hand ITC" Background="White" Click="Vormen_Click"/>
+            <Button x:Name="disney" Content="Disney" HorizontalAlignment="Left" Height="46" Margin="308,36,0,0" VerticalAlignment="Top" Width="111" FontFamily="Viner Hand ITC" Background="White" Click="Disney_Click"/>
+            <Button x:Name="BackGround" Content="Set Background" HorizontalAlignment="Left" Height="46" Margin="456,36,0,0" VerticalAlignment="Top" Width="111" FontFamily="Viner Hand ITC" Background="White" Click="SetBackground_Click"/>
         </Grid>
+        <Grid x:Name="SetBackground" HorizontalAlignment="Left" Height="292" Margin="998,406,0,0" VerticalAlignment="Top" Width="624" Background="#7F000000" Visibility="Collapsed">
+            <TextBox x:Name="EnterBackground" HorizontalAlignment="Left" Height="48" Margin="317,111,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="297" FontSize="20" Background="Transparent" BorderBrush="Black"/>
+            <Label Content="Choose from:&#xD;&#xA;&#xD;&#xA;Red&#xD;&#xA;Yellow&#xD;&#xA;Green&#xD;&#xA;Blue&#xD;&#xA;Purple&#xD;&#xA;Black&#xD;&#xA;White&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="272" Width="185" FontSize="20"/>
+            <Button x:Name="SetBackgroundButton" Content="Set Background" HorizontalAlignment="Left" Margin="317,228,0,0" VerticalAlignment="Top" Width="297" Height="54" FontFamily="Viner Hand ITC" FontSize="36" Background="#3F000000" Foreground="Black" Click="SetBackgroundButton_Click"/>
+            <Label x:Name="BackgroundAsk" Content="Enter your preferred background color" HorizontalAlignment="Left" Margin="317,14,0,0" VerticalAlignment="Top" Width="297" Height="54" FontSize="16"/>
+        </Grid>
+
 
 
     </Grid>
