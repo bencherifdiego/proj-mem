@@ -246,6 +246,9 @@ namespace Memory
             folderDisplay.Content = "Folder: " + folderSet;
         }
 
+        /// <summary>
+        /// Mute and unmute the game
+        /// </summary>
         public static bool muted = true;
         static int countClicks = 0;
         private void Mute_Click(object sender, RoutedEventArgs e)
@@ -264,11 +267,21 @@ namespace Memory
             countClicks++;
         }
 
+        /// <summary>
+        /// Show the theme buttons
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Thema_Click(object sender, RoutedEventArgs e)
         {
             thema.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Set the default theme
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Default_Click(object sender, RoutedEventArgs e)
         {
             MemoryGrid.folder = "/images";
@@ -276,6 +289,11 @@ namespace Memory
             Thema.Visibility = Visibility.Collapsed;
         }
 
+        /// <summary>
+        /// Set the 'Vormen' theme
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Vormen_Click(object sender, RoutedEventArgs e)
         {
             MemoryGrid.folder = "/vormen";
@@ -283,6 +301,11 @@ namespace Memory
             Thema.Visibility = Visibility.Collapsed;
         }
 
+        /// <summary>
+        /// Set the 'Disney' theme
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Disney_Click(object sender, RoutedEventArgs e)
         {
             MemoryGrid.folder = "/disney";
@@ -291,11 +314,21 @@ namespace Memory
 
         }
 
+        /// <summary>
+        /// Show the menu to set a different background
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SetBackground_Click(object sender, RoutedEventArgs e)
         {
             SetBackground.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Changes the background color
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SetBackgroundButton_Click(object sender, RoutedEventArgs e)
         {
             string Background = EnterBackground.Text;
