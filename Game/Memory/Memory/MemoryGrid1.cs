@@ -829,6 +829,9 @@ namespace SpellenScherm1
                 string winner = (scoreName1Tot > scoreName2Tot) ? Player1 : Player2;
                 MessageBox.Show(winner + " heeft gewonnen!");
             }
+            scoreName1Tot = 0;
+            scoreName2Tot = 0;
+            numberOfPairs = 0;
         }
 
         /// <summary>
