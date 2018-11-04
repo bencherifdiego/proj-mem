@@ -8,9 +8,9 @@
         Title="MainWindow" Height="1080" Width="1920" WindowState="Maximized">
     <Grid Background="#FF51BDDC">
         <Label Content="Memory" HorizontalAlignment="Left"  Height="192" Margin="838,96,0,0" VerticalAlignment="Top" Width="284" FontSize="72" Foreground="#FFE47417" FontFamily="Viner Hand ITC"/>
-        <Button x:Name="newGame" Content="Nieuw spel" HorizontalAlignment="Left" Height="97" Margin="677,413,0,0" VerticalAlignment="Top" Width="589" BorderBrush="#FFE47417" Click="NewGame_Click" FontSize="22" FontFamily="Viner Hand ITC" Background="White"/>
-        <Button x:Name="hervatten" Content="Spel Hervatten" HorizontalAlignment="Left" Height="97" Margin="677,606,0,0" VerticalAlignment="Top" Width="589" BorderBrush="#FFE47417" Click="Hervatten_Click" FontSize="22" FontFamily="Viner Hand ITC" Background="White"/>
-        <Button x:Name="close" Content="Exit Game" HorizontalAlignment="Left" Height="80" Margin="1678,929,0,0" VerticalAlignment="Top" Width="180" BorderBrush="#FFE47417" Click="Close_Click" FontSize="22" FontFamily="Viner Hand ITC" Background="White"/>
+        <Button x:Name="newGame" Content="New game" HorizontalAlignment="Left" Height="97" Margin="677,413,0,0" VerticalAlignment="Top" Width="589" BorderBrush="#FFE47417" Click="NewGame_Click" FontSize="22" FontFamily="Viner Hand ITC" Background="White"/>
+        <Button x:Name="hervatten" Content="Load game" HorizontalAlignment="Left" Height="97" Margin="677,606,0,0" VerticalAlignment="Top" Width="589" BorderBrush="#FFE47417" Click="Hervatten_Click" FontSize="22" FontFamily="Viner Hand ITC" Background="White"/>
+        <Button x:Name="close" Content="Exit game" HorizontalAlignment="Left" Height="80" Margin="1678,929,0,0" VerticalAlignment="Top" Width="180" BorderBrush="#FFE47417" Click="Close_Click" FontSize="22" FontFamily="Viner Hand ITC" Background="White"/>
         <Button x:Name="highscore" Content="Highscores" HorizontalAlignment="Left" Height="103" Margin="677,787,0,0" VerticalAlignment="Top" Width="589" BorderBrush="#FFE47417" Click="Highscore_Click" FontSize="22" FontFamily="Viner Hand ITC" Background="White"/>
     </Grid>
 </Window>
