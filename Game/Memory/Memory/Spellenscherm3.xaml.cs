@@ -181,6 +181,8 @@ namespace Memory
         private void ToMain_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            MemoryGrid.scoreName1Tot = 0;
+            MemoryGrid.scoreName2Tot = 0;
         }
 
         /// <summary>
