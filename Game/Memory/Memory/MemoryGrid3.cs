@@ -839,7 +839,7 @@ namespace SpellenScherm3
             scoreName1Tot = 0;
             scoreName2Tot = 0;
             numberOfPairs = 0;
-            string path = @"Save1.csv";
+            string path = @"Save3.csv";
             string delimiter = ";";
             File.WriteAllText(path, delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter);
         }
