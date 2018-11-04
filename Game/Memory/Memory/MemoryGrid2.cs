@@ -699,13 +699,13 @@ namespace SpellenScherm2
         private void StayTurn()
         {
             // check if its player1's turn, give the turn to player 2
-            if (turnName1 == true)
+            if (turnName2 == true)
             {
                 turnName1 = false;
                 turnName2 = true;
             }
             // check if its player2's turn and give the turn to player 1
-            else if (turnName1 == false)
+            else if (turnName2 == false)
             {
                 turnName1 = true;
                 turnName2 = false;
