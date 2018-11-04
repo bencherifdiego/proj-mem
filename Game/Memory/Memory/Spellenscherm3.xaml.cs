@@ -154,6 +154,8 @@ namespace Memory
         private void SaveGame_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            MemoryGrid.scoreName1Tot = 0;
+            MemoryGrid.scoreName2Tot = 0;
         }
 
         /// <summary>
