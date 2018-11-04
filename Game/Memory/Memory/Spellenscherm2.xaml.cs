@@ -99,6 +99,8 @@ namespace Memory
             // initialize grid
             grid = new MemoryGrid(GameGrid, 4, 4);
             start.Visibility = Visibility.Collapsed;
+            set1.Visibility = Visibility.Collapsed;
+            set2.Visibility = Visibility.Collapsed;
             turn1.Content = "Aan de beurt";
         }
 
