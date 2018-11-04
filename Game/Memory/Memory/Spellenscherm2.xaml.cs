@@ -156,8 +156,10 @@ namespace Memory
         /// <param name="e"></param>
         private void ResetGame_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start(Application.ResourceAssembly.Location);
-            Application.Current.Shutdown();
+            this.Close();
+            string path = @"Save2.csv";
+            File.WriteAllText(path, delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter);
+            new Spellenscherm2().ShowDialog();
         }
 
         /// <summary>
