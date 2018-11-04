@@ -121,6 +121,17 @@ namespace SpellenScherm2
                 }
                 ShowTurn();
 
+                if (data[0][0] != "")
+                {
+                    Spellenscherm2.main.name1.Content = data[0][0];
+                    Spellenscherm2.main.set1.Visibility = Visibility.Collapsed;
+                }
+                if (data[0][1] != "")
+                {
+                    Spellenscherm2.main.name2.Content = data[0][1];
+                    Spellenscherm2.main.set2.Visibility = Visibility.Collapsed;
+                }
+
                 List<ImageSource> images = GetImagesList();
                 for (int row = 0; row < rows; row++)
                 {
