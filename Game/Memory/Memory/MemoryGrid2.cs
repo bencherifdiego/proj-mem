@@ -29,8 +29,8 @@ namespace SpellenScherm2
         static int numberOfClicks = 0;
 
         // the total scores which will be displayed to the players
-        static int scoreName1Tot;
-        static int scoreName2Tot;
+        public static int scoreName1Tot;
+        public static int scoreName2Tot;
 
         // variables to count if there is made a new point, and to make it easier to keep track of the turns
         static int scoreName1;

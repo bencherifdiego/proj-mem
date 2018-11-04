@@ -30,6 +30,7 @@ namespace Memory
             InitializeComponent();
             main = this;
 
+            //read savefile
             var reader = new StreamReader(File.OpenRead(path));
             var data = new List<List<string>>();
 
@@ -42,6 +43,8 @@ namespace Memory
                         });
             }
             reader.Close();
+
+            //loads game
             if (data[0][2] == "SaveReady")
             {
                 MemoryGrid.Folder = data[1][3];
@@ -77,6 +80,8 @@ namespace Memory
             {
                 MemoryGrid.Folder = "/images";
             }
+
+            //reads savefile
             var reader = new StreamReader(File.OpenRead(path));
             var data = new List<List<string>>();
 
@@ -159,6 +164,8 @@ namespace Memory
         private void ResetGame_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            MemoryGrid.scoreName1Tot = 0;
+            MemoryGrid.scoreName2Tot = 0;
             string path = @"Save1.csv";
             File.WriteAllText(path, delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter + Environment.NewLine + delimiter + delimiter + delimiter);
             new Spellenscherm1().ShowDialog();
