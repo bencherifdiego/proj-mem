@@ -156,6 +156,9 @@ namespace Memory
             this.Close();
             MemoryGrid.scoreName1Tot = 0;
             MemoryGrid.scoreName2Tot = 0;
+            System.IO.Stream str = Memory.Properties.Resources.lobby;
+            System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+            snd.Play();
         }
 
         /// <summary>
@@ -183,6 +186,9 @@ namespace Memory
             this.Close();
             MemoryGrid.scoreName1Tot = 0;
             MemoryGrid.scoreName2Tot = 0;
+            System.IO.Stream str = Memory.Properties.Resources.lobby;
+            System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+            snd.Play();
         }
 
         /// <summary>
