@@ -39,7 +39,8 @@ namespace Memory
                 var line = reader.ReadLine();
                 var values = line.Split(';');
 
-                data.Add(new List<String> { values[0], values[1], values[2], values[3]
+                data.Add(new List<String>
+                { values[0], values[1], values[2], values[3]
                         });
             }
             reader.Close();
